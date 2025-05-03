@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard</title>
+  <style>
+
+    .btn-group {
+        margin-top: 20px;
+    }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0d47a1, #42a5f5);
+      color: white;
+      min-height: 100vh;
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background-color: rgba(0, 0, 0, 0.75);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+    }
+
+    h2, h3 {
+      color: #4fc3f7;
+    }
+
+    table {
+      width: 100%;
+      margin-top: 10px;
+      border-collapse: collapse;
+      background-color: white;
+      color: black;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #263238;
+      color: white;
+      text-align: left;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .btn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 25px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .btn-danger {
+      background-color: #e53935;
+      color: white;
+    }
+
+    .btn-warning {
+      background-color: #ffca28;
+      color: black;
+      margin-left: 10px;
+    }
+
+    .alert {
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    .alert-success {
+      background-color: #2e7d32;
+      color: white;
+    }
+
+    .alert-danger {
+      background-color: #c62828;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Bem-vindo ao seu painel</h2>
+
+    <p><strong>Total de usuários cadastrados:</strong> {{ total_usuarios }}</p>
+
+    <h3>Usuários cadastrados:</h3>
+<table>
+  <thead>
+    <tr><th>Nome</th></tr>
+  </thead>
+  <tbody>
+    {% for usuario in usuarios %}
+      <tr><td>{{ usuario[0] }}</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<!-- Botões agora separados da tabela -->
+<div class="btn-group">
+  <a href="/logout" class="btn btn-danger">Logout</a>
+  <a href="/editar_perfil" class="btn btn-warning">Editar Perfil</a>
+</div>
+
+<h3>Remover Cadastro</h3>
+<form action="/remover_usuario" method="POST">
+  <input type="text" name="cpf" placeholder="CPF" class="form-control" required>
+  <input type="password" name="senha" placeholder="Senha" class="form-control" required>
+  <button type="submit" class="btn btn-danger">Remover Cadastro</button>
+</form>

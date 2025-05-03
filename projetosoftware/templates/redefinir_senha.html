@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Redefinir Senha</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0d47a1, #1976d2);
+            color: #fff;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 100px auto;
+            background-color: #0b1d36;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            text-align: center;
+            color: #29b6f6;
+        }
+
+        input[type="password"],
+        button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+        }
+
+        input[type="password"] {
+            background-color: #fff;
+            color: #000;
+        }
+
+        button {
+            background-color: #2196f3;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #1976d2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Redefinir Senha para {{ email }}</h2>
+        <form method="POST">
+            <input type="password" name="nova_senha" placeholder="Nova senha" required>
+            <button type="submit">Atualizar Senha</button>
+        </form>
+    </div>
+</body>
+</html>
